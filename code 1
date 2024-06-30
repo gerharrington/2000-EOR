@@ -373,7 +373,6 @@ function addDynamicCSS() {
   addDynamicCSS();
   
   tooltipList = [
-    // World Leaders
     {searchString: "NRP", explanationText: "Natural governing party, in decline"},
   ]
 
