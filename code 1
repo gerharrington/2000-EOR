@@ -310,6 +310,99 @@ jet_data = {
     "customQuote": "\"Hart began to sound the death knell, Clinton made the party dying, and Bradley ruined it.\" - New York Times"
 }
 
+function addDynamicCSS() {
+  var css = `
+
+  label {
+    display:inline-block;
+  }
+
+  .inner_window_question h3 .mytooltip{
+      background-color: lightskyblue;
+  }
+
+  .mytooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      background-color: lightblue;
+  }
+
+  .mytooltip .mytooltiptext {
+      width: 240px;
+      background-color: lightgray;
+      color: black;
+      text-align: center;
+      border-radius: 6px;
+      padding: 10px;
+      position: absolute;
+      z-index: 99;
+      bottom: 20%;
+      left: 20%;
+      margin-left: -90px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border: 1px solid black;
+      pointer-events: none;
+      font-size: 13px !important;
+      line-height: 1.5em !important;
+      font-weight: normal !important;
+      font-style: normal !important;
+  }
+
+  .mytooltip .mytooltiptext img {
+      max-width: 240px;
+      height: auto;
+  }
+
+  .mytooltip:hover .mytooltiptext {
+      opacity: 1;
+      transition-delay: 0.5s;
+  }
+
+
+.mytooltip:hover .bubble {
+opacity: 1;
+transition-delay: 0.5s;
+}
+.bubble {
+  width: 240px;
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 99;
+  bottom: 20%;
+  left: 20%;
+  margin-left: -90px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border: 1px solid black;
+  pointer-events: none;
+  font-size: 13px !important;
+  line-height: 1.5em !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
+.mytooltip:hover .bubble-bottom-left:before,
+.mytooltip:hover .bubble-bottom-left:after {
+opacity: 1;
+}
+  `;
+
+  var styleElem = document.createElement('style');
+  styleElem.type = 'text/css';
+  
+  styleElem.appendChild(document.createTextNode(css));
+  
+  document.head.appendChild(styleElem);
+}
+
+addDynamicCSS();
+
 tooltipList = [
   {searchString: "Want to know more about your options for running mate?", explanationText: "Your actions during the primaries determine your option of running mates. Each option for running mate can be unlocked through their own reactions to some of your stances. Some may be drawn to you by strong foreign policy stances, others may be drawn by your desire to build bridges and compromise. Try playing different strategies each time in order to find more options!"},
   {searchString: "Gang of Eight", explanationText: "Another term for the State Committee on the State of Emergency, the plotters of the August Coup."},
