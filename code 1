@@ -310,108 +310,144 @@ jet_data = {
     "customQuote": "\"Hart began to sound the death knell, Clinton made the party dying, and Bradley ruined it.\" - New York Times"
 }
 
-e.displayTooltips = true;
-
 function addDynamicCSS() {
-  var css = `
-      .inner_window_question h3 .mytooltip{
-          background-color: #ffb7b7;
-      }
-
-      .mytooltip {
-          position: relative;
-          display: inline-block;
-          cursor: pointer;
-          background-color: #ffd0d0;
-      }
-
-      .mytooltip .mytooltiptext {
-          width: 240px;
-          background-color: #ffd0d0;
-          color: black;
-          text-align: center;
-          border-radius: 6px;
-          padding: 10px;
-          position: absolute;
-          z-index: 99;
-          bottom: 20%;
-          left: 20%;
-          margin-left: -90px;
-          opacity: 0;
-          transition: opacity 0.3s;
-          border: 1px solid black;
-          pointer-events: none;
-          font-size: 13px !important;
-          line-height: 1.5em !important;
-          font-weight: normal !important;
-          font-style: normal !important;
-      }
-
-      .mytooltip .mytooltiptext img {
-          max-width: 240px;
-          height: auto;
-      }
-
-      .mytooltip:hover .mytooltiptext {
-          opacity: 1;
-          transition-delay: 0.5s;
-      }
-  `;
-
-  var styleElem = document.createElement('style');
-  styleElem.type = 'text/css';
+      var css = `
   
-  styleElem.appendChild(document.createTextNode(css));
+          label {
+            display:inline-block;
+          }
   
-  document.head.appendChild(styleElem);
-}
-
-
-addDynamicCSS();
-
-tooltipList = [
-  {searchString: "Conservative Party", explanationText: "<img src=https://i.imgur.com/Vy0pMNj.png> The Conservative Party of New York is a third-party confined to the state of New York. It is the party in which James Buckley ran under in both 1968 and 1970 for Senate, as well as his brother Bill Buckley Jr. in the 1965 New York City mayoral election."},
-  {searchString: "peace in Vietnam", explanationText: "The United States emerged victorious in the Vietnam War after an assassination by the CIA, internal instability, and the two pro-North countries going to war with eachother led to the collapse of North Vietnam."},
-  {searchString: "ROC", explanationText: "Short for the ‘Republic of China’ or Taiwan, a nation that has a strong claim to the true China. Territories include the island of Taiwan and various southern mainland port cities ceded to them after the conclusion of the Sino-Soviet War."},
-  {searchString: "Joint Economic Committee", explanationText: "<img src=https://files.catbox.moe/5l4xd0.png> The Joint Economic Committee is responsible for the accurate reporting of the current American economic situation, gaining particular prominence recently for its active role in the current slump. It is one of four standing committees in Congress."},
-  {searchString: "Sino-Soviet War", explanationText: "The Sino-Soviet War was a conventional war between the two communist powers of the Soviet Union and the People’s Republic of China that lasted from 1969-1974. The war broke out after extensive deterioration in diplomacy between the two nations following the 1969 border clashes."},
-  {searchString: "Treaty of Leningrad", explanationText: "The 1974 treaty that formally ended the Sino-Soviet War. The war resulted in a Soviet victory and led to the effective dissolution of the Maoist Chinese state in favor of a Soviet-aligned Marxist-Leninist puppet. The treaty also resulted in an independent Tibet and the cession of various southern port cities to the Republic of China, also known as Taiwan."},
-  {searchString: "PAVN", explanationText: "The acronym for the ‘People’s Army of Vietnam’, the PAVN was the official military force of the communist North Vietnamese state but was later dissolved after the victory of the anti-communist forces in 1973."},
-  {searchString: "Viet Cong", explanationText: "The Viet Cong was the communist movement in South Vietnam, now the unified Republic of Vietnam, that sought to unify the nation under communist rule. Commanded by North Vietnam against the South at the time, it continues to exist as a constant insurgency threat that is determined to upend the anti-communist regime."},
-  {searchString: "stagflation", explanationText: "<img src=https://files.catbox.moe/k16si0.png> Stagflation is a term that has been recently coined to describe the current economic situation. The basis of stagflation is as follows: high inflation, slowed growth rate, and high unemployment."},
-  {searchString: "War on Drugs", explanationText: "<img src=https://files.catbox.moe/4ckpi5.png> The ‘War on Drugs’ is the name given to the Reagan Administration’s policy of tackling the drug issue in America. It goes after drug users, distributors, and manufacturers. It’s one part of many policies by the Reagan Administration that seeks to end or reverse ‘societal decay’."},
-  {searchString: "Middle East", explanationText: "<img src=https://files.catbox.moe/dzczmj.png> The Middle East is a hotbed of discussion due to the oil embargo imposed on the United States and other nations that supported Israel in the 1973 Yom Kippur War. The oil embargo has led to the Oil Crisis and is attributed partly to the worsening economic situation."},
-  {searchString: "Small Business Act", explanationText: "<img src=https://files.catbox.moe/6343iv.png> A failed act proposed by Senator James L. Buckley of New York that sought to amend the Small Business Investment Act of 1958 to increase funding for small businesses via the Small Business Administration."},
-  {searchString: "Roe v. Wade", explanationText: "<img src=https://files.catbox.moe/2nxv9a.png> A landmark Supreme Court decision on abortion that ruled 5-4 in favor of Henry Wade. This effectively denied federal protection of abortion and left the issue up to the various states, in which many banned the practice. It is still a heated topic amongst liberals and conservatives. <i>(Disclaimer: This does not reflect my opinion on the issue of abortion nor do I wish to offend anyone.)</i>"},
-  {searchString: "Wade", explanationText: "Henry Wade is the district attorney for Dallas County, Texas and was the defendant in Roe v. Wade, in which the Supreme Court ruled in favor of."},
-  {searchString: "Equal Rights Amendment", explanationText: "<img src=https://i.imgur.com/nyCP2Ax.jpeg> The Equal Rights Amendment is a proposed Constitutional amendment that passed both chambers of Congress and has yet to receive the necessary 3/4ths (38 states) of all states in favor of ratification. The amendment would guarantee and uphold equal rights for all Americans regardless of sex. It is supported by liberals and many womens’ groups, while opposed by conservatives."},
-  {searchString: "Phyllis Schlafly", explanationText: "<img src=https://files.catbox.moe/8rhepq.png> Phyllis Schlafly is the leader of a growing conservative movement of women who are in opposition to the ratification of the Equal Rights Amendment. Considered to be an anti-feminist, she also opposes abortion."},
-  {searchString: "National Review", explanationText: "<img src=https://files.catbox.moe/kqesaj.png> The National Review is an editorial magazine founded by William F. Buckley Jr. in 1955. It discusses issues of the day through a conservative lens."},
-  {searchString: "Joint Committee on Military Conduct in Vietnam", explanationText: "<img src=https://files.catbox.moe/4lwj5a.png> The Joint Committee on Military Conduct in Vietnam is exactly as the name suggests. Formed by Representatives and Senators, it seeks to investigate the actions of the US Military during the Vietnam War. Many members of Congress were concerned about ethical conduct by American troops and if they were following international law."},
-  {searchString: "anti-communist Polish militia", explanationText: "<img src=https://i.imgur.com/Kw51fgu.png> The PNLS or ‘Polish Nation for Liberation and Solidarity’ is the main anti-communist militia force in Poland following the Warsaw uprising against the Soviet Union. They are fighting for the end of communist rule and independence from the Soviet Union."},
-  {searchString: "Lee Atwater", explanationText: "<img src=https://files.catbox.moe/fg910l.png> Harvey LeRoy Atwater, or Lee Atwater as of recent, is an up and coming Republican insider. Currently associated with the College Republicans, he made massive efforts to help the Reagan campaign in ’72 via getting young voters to go up to the ballot box and vote for President Reagan. It seems like his future seems promising, maybe he'll get to managing presidential campaigns someday."},
-  {searchString: "George Bush", explanationText: "<img src=https://i.imgur.com/cqwj2ZI.png> George Bush is currently serving as Director of the CIA. A moderate-conservative, he is generally will liked by the party, minus some restraint from the more hardline conservatives. As Director, he helped plan and execute the CIA mission assassinating PAVN General Lo Nguyen Giap, which eventually led to the end of the Vietnam War with an American victory. Because of this, he has high public support."},
-  {searchString: "John Tower", explanationText: "<img src=https://i.imgur.com/OYJQfvq.png> John Tower is currently Senator from Texas, replacing Lyndon Johnson in 1961 after he became Vice President. He has been an ally to the Reagan Administration in the Senate, providing key votes on various pieces of legislation."},
-  {searchString: "John Volpe", explanationText: "<img src=https://i.imgur.com/UFmyPnZ.png> Secretary John Volpe is a well known and rather popular man. Appointed as Secretary of State by Reagan in 1969, he has helped with shaping Reagan's foreign policy. Conservatives love his foreign policy stances, but aren't fond of his social ones. A moderate Republican, Volpe is your classic northeastern Republican. Before serving as Secretary of State, Volpe was Governor of Massachusetts."},
-  {searchString: "Richard Nixon", explanationText: "<img src=https://files.catbox.moe/kl2xom.png> Current National Security Advisor and former Vice President of the United States, Richard Nixon has had a storied career in politics. He was the original frontrunner for the 1968 Republican nomination but decided against running, for whatever reason. Tapped as NSC Chairman under Reagan, he was the key advisor that led Reagan into Cambodia. He has an awkward social personality and isn't really liked by the American populace."},
-  {searchString: "Jesse Helms", explanationText: "<img src=https://i.imgur.com/i9OJ538.png> Jesse Helms is an unabashed conservative, and probably the man most aligned with President Reagan out of the candidates in the running. First elected to the Senate in 1972, he has been a critical ally for the current administration, always there to vote on legislation that the president wants. But outside of his loyalty and conservatism, he holds no other weight in the party."},
-  {searchString: "Barry Goldwater", explanationText: "<img src=https://i.imgur.com/PP7znC9.png> Barry Goldwater is one of the Senators for Arizona and is the prime example of what a conservative is, well until Ronald Reagan became president. Promoting conservatism as an ideology that can counter the liberalism that was festering, he ultimately failed in his mission getting destroyed in the ’64 election against Lyndon."},
-  {searchString: "Ronald Reagan", explanationText: "<img src=https://files.catbox.moe/k9v45e.png> Ronald Reagan is currently the 37th President of the United States of America and governor to California before becoming POTUS. In domestic affairs, Reagan would govern as a ‘Law & Order’ and committed conservative. In foreign affairs he would be tough on the Soviets and PRC while also working to continue the nation's vested interest in the Asian sphere with continued aid for Vietnam and Taiwan."},
-  {searchString: "George Romney", explanationText: "<img src=https://i.imgur.com/IuOpruH.png> George Romney is the current Vice President to President Reagan and was the governor to Michigan before being in his position. He decided to not run in the Republican primary in ’76."},
-  {searchString: "Pat Buchanan", explanationText: "<img src=https://files.catbox.moe/6fv844.png> Pat Buchanan is a one of the many figures emerging from the South for the Republicans. A more populistic and bombastic Republican than many are used too. Defiant with urges of compromise and devout faith towards ideology, he certainly fits with the more conservative elements that are gaining more and more prominence in the party."},
-  {searchString: "Volcker", explanationText: "<img src=https://files.catbox.moe/4eoye6.png> Paul Volcker is the current chairman to the Federal Reserve, and is in quite a predicament. The economy seems to look at getting sour, as stagflation seems to get ever more present in American life. To deal with this, the chairman has been doing a strategy of raising interest rates to get the economy under control. Whether this solution is a good one remains to be seen."},
-  {searchString: "Ted Kennedy", explanationText: "<img src=https://files.catbox.moe/3qmwp8.png> Ted Kennedy is one of the Senators for Massachusetts and is a part of the more liberal wing of the Democratic party. Pushing for things such as universal healthcare and higher taxes to the wealthy, it's clear to see why he is among the favorites with many in the party."},
-  {searchString: "Reubin Askew", explanationText: "<img src=https://files.catbox.moe/vz87bx.png> Elected Governor of Florida in 1970, Askew has been a rising star in the Democratic Party, He is young and fairly charismatic, but generally soft-spoken. He is a strong supporter of civil rights, government transparency <i>(criticizing Reagan's decision to escalate Vietnam without consulting Congress)</i>, and tax reform amidst the ongoing economic slump."},
-  {searchString: "Pork Chop Gang", explanationText: "<img src=https://files.catbox.moe/swfdxb.png> Up until Reubin Askew took office as Governor of Florida in 1971, this group dominated the Florida legislature. Made up of around 20-30 Democratic Party legislators from northern Florida, they remained committed to preserving segregation and their power in the state."},
-  {searchString: "reformer", explanationText: "You are known and respected as a progressive reformer, something rather new to Southern politics. You are also one of the many leaders of the “New South” movement."},
-  {searchString: "incident", explanationText: "<img src=https://i.imgur.com/N4b5IDg.png> In July of 1969, Senator Ted Kennedy drove his car off a bridge on Chappaquiddick Island in Massachusetts. This resulted in the death of his passenger, Mary Jo Kopechne, by drowning. Kennedy has been criticized for his mere slap on the wrist, only losing his license for a little over a year. His light consequences have since been attributed to his name and family reputation. Kennedy himself has apologized profusely for the incident."},
-  {searchString: "time for choosing", explanationText: "<img src=https://files.catbox.moe/ir2hbu.png> The name of Ronald Reagan’s famous 1964 speech supporting the Republican presidential nominee Barry Goldwater. He has since used the term in his successful 1968 and 1972 presidential campaigns."},
-  {searchString: "corruption charge", explanationText: "<img src=https://i.imgur.com/mE069yW.png> During the 1976 primary season, Jesse Unruh was accused of corruption and almost impeached by the California state legislature after documents of payments were found in the home of an Unruh confidant. It was later confirmed to be hoax, perpetrated by a state-wide political ring headed by Lieutenant Governor Sam Yorty and Secretary of State Jerry Brown, with the support of the Sacramento police department, to bring down the Governor."},
-  {searchString: "25th", explanationText: "<img src=https://i.imgur.com/XDaDo5B.png> The 25th Amendment properly outlined presidential succession."},
-  {searchString: "26th", explanationText: "<img src=https://i.imgur.com/x1F5xxw.png> The 26th amendment reduced the minimum age to vote from 21 to 18 years of age."},
-  {searchString: "the assassination of George Wallace", explanationText: "<img src=https://i.imgur.com/4bdyGRY.png> Governor George Wallace was assassinated in 1972 during the Democratic primaries for president, in which he was a candidate for. Upon taking to the stage to deliver a speech, he was fired upon by a young man named Arthur Bremer, where he was struck in the chest and killed instantly."},
-  {searchString: "James L. Buckley", explanationText: "<img src=https://i.imgur.com/sIHYdUy.png> James Buckley is a Senator from the state of New York, having won a three-way race under the Conservative Party banner in 1970. Nationally aligning with the Republican Party, Buckley clinched the nomination though being perceived as an outsider. He is the older brother of the conservative media mogul William F. Buckley Jr."}
-]
+          .inner_window_question h3 .mytooltip{
+              background-color: lightskyblue;
+          }
+  
+          .mytooltip {
+              position: relative;
+              display: inline-block;
+              cursor: pointer;
+              background-color: #d8dee8;
+          }
+  
+          .mytooltip .mytooltiptext {
+              width: 240px;
+              background-color: #d8dee8;
+              color: black;
+              text-align: center;
+              border-radius: 6px;
+              padding: 10px;
+              position: absolute;
+              z-index: 99;
+              bottom: 20%;
+              left: 20%;
+              margin-left: -90px;
+              opacity: 0;
+              transition: opacity 0.3s;
+              border: 1px solid black;
+              pointer-events: none;
+              font-size: 13px !important;
+              line-height: 1.5em !important;
+              font-weight: normal !important;
+              font-style: normal !important;
+          }
+  
+          .mytooltip .mytooltiptext img {
+              max-width: 240px;
+              height: auto;
+          }
+  
+          .mytooltip:hover .mytooltiptext {
+              opacity: 1;
+              transition-delay: 0.5s;
+          }
+      `;
+  
+      var styleElem = document.createElement('style');
+      styleElem.type = 'text/css';
+      
+      styleElem.appendChild(document.createTextNode(css));
+      
+      document.head.appendChild(styleElem);
+  }
+  
+  
+  addDynamicCSS();
+  
+  tooltipList = [
+    // World Leaders
+    {searchString: "Pootie-Poot", explanationText: "<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Vladimir_Putin_taking_the_Presidential_Oath%2C_7_May_2000.jpg/1200px-Vladimir_Putin_taking_the_Presidential_Oath%2C_7_May_2000.jpg> Vova! President Vladimir Putin of the Russian Federation"},
+    {searchString: "Hu", explanationText: "<img src=https://cdnph.upi.com/svc/sv/upi/7431552526812/2019/1/4a50f1a7e0871baafc94c7b0ff117708/On-This-Day-Hu-Jintao-becomes-president-of-China.jpg> President Hu Jintao of the P.R. of China"},
+    {searchString: "Musharraf", explanationText: "<img src=https://www.chinadaily.com.cn/english/doc/2004-12/31/xin_471201310915438318434.jpg> President Pervez Musharraf of Pakistan"},
+    {searchString: "Kim Jong Il", explanationText: "<img src=https://www.irishexaminer.com/cms_media/module_img/2268/1134356_1_seoimage4x3_ie-177777_caf8a41134ae44f7ac603f11653bdfaa.jpg> Leader Kim Jong Il of the D.P.R. of Korea"},
+    {searchString: "Kim", explanationText: "<img src=https://www.irishexaminer.com/cms_media/module_img/2268/1134356_1_seoimage4x3_ie-177777_caf8a41134ae44f7ac603f11653bdfaa.jpg> Leader Kim Jong Il of the D.P.R. of Korea"},
+    {searchString: "Saddam", explanationText: "<img src=https://www.aljazeera.com/wp-content/uploads/2006/12/1_204177_1_5.jpeg?resize=270%2C180&quality=80> President Saddam Hussein of Iraq"},
+    {searchString: "Hussein", explanationText: "<img src=https://www.aljazeera.com/wp-content/uploads/2006/12/1_204177_1_5.jpeg?resize=270%2C180&quality=80> President Saddam Hussein of Iraq"},
+    {searchString: "Hugo", explanationText: "<img src=https://progressive.org/downloads/8944/download/hugo_chavez3.jpg?cb=809883c443bf40b5b7ae6db2550bb0ba&w=731> President Hugo Chávez of Venezuela"},
+    {searchString: "Saddam Hussein", explanationText: "<img src=https://www.aljazeera.com/wp-content/uploads/2006/12/1_204177_1_5.jpeg?resize=270%2C180&quality=80> President Saddam Hussein of Iraq"},
+    {searchString: "Bashar", explanationText: "<img src=https://video-images.vice.com/articles/5d8dede582800b0008fc5b10/lede/1569584737678-AP_0806180477.jpeg?crop=0.6494xw:1xh;0.1944xw,0xh> President Bashar al-Assad of Syria"},
+    // Cabinet Officials
+    {searchString: "NRP,", explanationText: "<img src=https://i.guim.co.uk/img/media/a37d41201e3dea2d4297ee3ef4c7673654f17aa9/0_87_2048_1229/master/2048.jpg?width=620&dpr=1&s=none> Dick Cheney - Vice President of the United States"},
+    {searchString: "Light Bulb", explanationText: "<img src=https://i2.cdn.turner.com/money/galleries/2010/news/1009/gallery.energy_policy_makers.fortune/images/andrew_lundquist.jpg> Andrew D. Lundquist - National Energy Policy Development Group Executive Director"},
+    {searchString: "Brother George", explanationText: "<img src=https://www.theledger.com/gcdn/authoring/2004/06/03/NLED/ghows-LK-2e2e9f20-c92c-4651-b3c0-153c59c2fe58-ee215530.jpeg?width=1200&disable=upscale&format=pjpg&auto=webp> George Tenet - CIA Director"},
+    {searchString: "Rummy", explanationText: "<img src=https://www.thenation.com/wp-content/uploads/2021/07/Rumsfeld-GTY.jpg> Donald Rumsfeld - Secretary of Defense and Poppy's pal"},
+    {searchString: "Turd Blossom", explanationText: "<img src=https://cdn.britannica.com/17/103117-004-5BED9F8C/Karl-Rove-2006.jpg> Karl Rove - Senior Advisor and White House Dept. Chief of Staff"},
+    {searchString: "Gerson", explanationText: "<img src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/XYQEIYDB54I63GGG4N62XTTUM4.jpg> Michael Gerson - White House Speech Writer"},
+    {searchString: "Danny Boy", explanationText: "<img src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/XYQEIYDB54I63GGG4N62XTTUM4.jpg> Dan Bartlett - White House Communications Director"},
+    {searchString: "Bart", explanationText: "<img src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/XYQEIYDB54I63GGG4N62XTTUM4.jpg> Dan Bartlett - White House Communications Director"},
+    {searchString: "Frum", explanationText: "<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/David_Frum.jpg/220px-David_Frum.jpg> David Frum - White House Speech Writer"},
+    {searchString: "Ari-Bob", explanationText: "<img src=https://deadline.com/wp-content/uploads/2017/07/eb49bcb4-d38a-4f42-a811-c6c38b2a77df.jpg> Ari Fleischer - White House Speech Writer"},
+    // Characters
+    {searchString: "Lipinsky", explanationText: "<img src=https://www.govtrack.us/static/legislator-photos/400243-200px.jpeg> Representative Bill Lipinski"},
+    {searchString: "Lay", explanationText: "<img src=https://upload.wikimedia.org/wikipedia/commons/c/ce/Ken_Lay.jpg> Kenneth Lay - Chairman of Enron"},
+    {searchString: "Rush", explanationText: "<img src=https://i.insider.com/5e3af0f25bc79c6b1e307d42?width=700&format=jpeg&auto=webp> Rush Limbaugh - Radio guy, speaks into microphones"},
+    {searchString: "Arnie", explanationText: "<img src=https://s.yimg.com/ny/api/res/1.2/GLo7nLnt3CFENLsxK6kSFw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTQyMA--/https://media.zenfs.com/en/sacramento_bee_mcclatchy_569/04dad80e09d2ab69ff3d5b952e5ab79b> Arnold Schwarzenegger - Macho Governor of California, was in a few movies"},
+    {searchString: "Stenholm and Kolbe", explanationText: "<img src=https://www.concordcoalition.org/wp-content/uploads/2022/12/kolbe_stenholm.jpg> Reprentatives Jim Kolbe and Charles Stenholm - The brains behind the the private account plan"},
+    {searchString: "Baucus", explanationText: "<img src=https://www.politico.com/dims4/default/54beb26/2147483647/strip/true/crop/605x328+0+0/resize/630x342!/quality/90/?url=http%3A%2F%2Fs3-origin-images.politico.com%2F2013%2F04%2F23%2F130422_max_baucus_ap_605.jpg> Senator Max Baucus - Ranking Member of the Senate Finance Committee"},
+    {searchString: "Poppy", explanationText: "<img src=https://9b16f79ca967fd0708d1-2713572fef44aa49ec323e813b06d2d9.ssl.cf2.rackcdn.com/1140x_a10-7_cTC/web-Obit-George-HW-Bush-1-1543785088.jpg> Daddy!"},
+    {searchString: "Gog and Magog", explanationText: "<img src=https://upload.wikimedia.org/wikipedia/commons/2/2e/Toulouse_ms_815-049v-Gog%26Magog.jpg> Son of man, direct your face against Gog, of the land of Magog, the prince, leader of Meshech and Tubal, and prophesy concerning him"},
+    {searchString: "Ann Richards", explanationText: "<img src=https://m.media-amazon.com/images/M/MV5BYjgwMWJkZDYtODgxNS00MDFmLWEyMGUtY2QyMDQzNjFmNjAyXkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_.jpg> That gal from Waco"},
+    {searchString: "Hanoi Fonda", explanationText: "<img src=https://pbs.twimg.com/media/EuDm044XcAA0crj?format=jpg&name=small> Jane Fonda - Spent more time in Viet Nam than you"},
+    {searchString: "Denny", explanationText: "<img src=https://www.ocregister.com/wp-content/uploads/migration/kpn/kpn8nw-05bccongresslg.jpg?w=640> Dennis Hastert - Minority Leader and Suspected Minority Abuser"},
+    {searchString: "Denny Hastert", explanationText: "<img src=https://www.ocregister.com/wp-content/uploads/migration/kpn/kpn8nw-05bccongresslg.jpg?w=640> Dennis Hastert - Minority Leader and Suspected Minority Abuser"},
+    {searchString: "Lott", explanationText: "<img src=https://media-cldnry.s-nbcnews.com/image/upload/t_social_share_1024x768_scale,f_auto,q_auto:best/msnbc/Components/Photos/060117/060117_lott_hmed_9a.jpg> Trent Lott - Former Senate Majority Leader, one of those devil horned southerners"},
+    {searchString: "Don Henry", explanationText: "Victim #1"},
+    {searchString: "Vince Foster", explanationText: "Victim #2"},
+    {searchString: "Ron Brown", explanationText: "Victim #3"},
+    {searchString: "5-4 decision", explanationText: "<i>Lawrence v. Texas</i> - Sodomists playing their hand."},
+    {searchString: "November's elections", explanationText: "2002 midterms where Democrats retook the House and held the Senate."},
+    {searchString: "Congressional Budget Office", explanationText: "<img src=https://historycms.house.gov/uploadedImages/Historical_Highlights/1951-2000/ford-aoc-display.jpg> Federal agency responsible for providing budgets to Congress. Economic reality unfortunately has an anti-conservative bias"},
+    {searchString: "Blue Dogs", explanationText: "<img src=https://miro.medium.com/v2/resize:fit:640/format:webp/1*0nD35VC5PPK_I6PJwwOphA.jpeg> Blue Dogs - Conservative Democrats, a dying breed"},
+    {searchString: "McNally", explanationText: "<img src=https://s3.us-east-1.amazonaws.com/files.cnas.org/thumbnails/Bob_McNally-web.jpg> Bob McNally - One of those bunches of Special Assistants to the President"},
+    {searchString: "Tangent Man", explanationText: "<img src=https://www.patriotledger.com/gcdn/authoring/2007/12/10/NPAL/ghows-WL-408cb2ad-d59c-40bc-b991-0a39a4130075-6f659e5c.jpeg?crop=1699,960,x0,y0&width=1699&height=960&format=pjpg&auto=webp> Andrew Card - Chief of Staff, your attack dog against the liberal media"},
+    {searchString: "Jesse Jackson", explanationText: "<img src=https://news.harvard.edu/wp-content/uploads/2004/02/10-jesse1-450-2.jpg> Jesse Jackson - civil rights activist and two-time presidential candidate. A critic of both Reagan and Clinton, he has become a figure of fear and scorn for many white moderates"},
+    {searchString: "Tawana Brawley", explanationText: "<img src=https://media.npr.org/assets/img/2013/08/05/tawanabrawley052way-7c58beebd613cdbbd09461ceb2a748c23bc800dd.jpg> Tawana Brawley - a young black woman from New York who, in 1987, accused four white men of kidnapping and raping her. A grand jury concluded she had not been the victim of an attack and may have sought to create the appearance of one"},
+    {searchString: "Zell", explanationText: "<img src=https://blogs.mprnews.org/newscut/files/2018/03/GettyImages-51254681.jpg> Senator Zell Miller - Your Democrat friend from Georgia and a hard-nosed, tough-on-crime conservative in the US Senate"},
+    {searchString: "Zell Miller", explanationText: "<img src=https://blogs.mprnews.org/newscut/files/2018/03/GettyImages-51254681.jpg> Senator Zell Miller - Your Democrat friend from Georgia and a hard-nosed, tough-on-crime conservative in the US Senate."},
+    {searchString: "Wolfowitz", explanationText: "<img src=https://media.defense.gov/2001/Mar/06/2002019036/1088/820/0/341857-A-ZTH38-266.jpg> Paul Wolfowitz - The Deputy Secretary of Defense. Architect and Destroyer of Nations. A true believer, in the Templar sense"},
+    {searchString: "Paul Wolfowitz", explanationText: "<img src=https://media.defense.gov/2001/Mar/06/2002019036/1088/820/0/341857-A-ZTH38-266.jpg> Paul Wolfowitz - The Deputy Secretary of Defense. Architect and Destroyer of Nations. A true believer, in the Templar sense"},
+    {searchString: "Speaker of the House", explanationText: "<img src=https://www.politico.com/dims4/default/94fb98d/2147483647/strip/true/crop/297x223+0+0/resize/630x473!/quality/90/?url=http%3A%2F%2Fs3-origin-images.politico.com%2Fnews%2F090209_gephardt_vogel.jpg> Richard Gephardt"},
+    
+    {searchString: "Clint Eastwood", explanationText: "<img src=https://i.imgur.com/7MVjHTR.png> Playing Frankie Dunn in Million Dollar Baby, June 2004..."},
+    {searchString: "Eastwood", explanationText: "<img src=https://i.imgur.com/7MVjHTR.png> Playing Frankie Dunn in Million Dollar Baby, June 2004..."},
+    
+    {searchString: "Harriet", explanationText: "<img src=https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Harriet_fg1.jpg/220px-Harriet_fg1.jpg> Older than time"},
+    {searchString: "Hogan", explanationText: "<img src=https://bostonglobe-prod.cdn.arcpublishing.com/resizer/tmg14YTg8rA2KkIr8QSnja9IpCI=/960x0/arc-anglerfish-arc2-prod-bostonglobe.s3.amazonaws.com/public/MW4CTUFKFMI6RACFIP73VNLZTQ.jpg> Surely ain't no Goldie"},
+    {searchString: "Democracy Now!", explanationText: "<img src=https://media.licdn.com/dms/image/C510BAQE8By88u7CDVg/company-logo_200_200/0/1631363841852?e=2147483647&v=beta&t=1-9Y54Jdtz0KjZHmra83CokZhlC94o2uLCUF7s6Cj4c> Goebbels' second favorite station"},
+    {searchString: "Jeb", explanationText: "<img src=https://static01.nyt.com/images/2015/01/18/us/politics/BUSH/BUSH-articleLarge.jpg?quality=75&auto=webp&disable=upscale> Brother."},
+    {searchString: "Atari Democrat", explanationText: "<img src=https://techland.time.com/wp-content/uploads/sites/15/2012/06/wpid-photo-jun-26-2012-429-pm.jpg?w=600> Went the way of the dinosaurs"},
+    {searchString: "Baucus", explanationText: "<img src=https://bloximages.chicago2.vip.townnews.com/helenair.com/content/tncms/assets/v3/editorial/4/c5/4c587644-9067-11e3-87cd-001a4bcf887a/52f593f4c8dc1.image.jpg?resize=352%2C500> Max Baucus - Owner of the government credit card"},
+    {searchString: "Yoo", explanationText: "<img src=https://cdn.theatlantic.com/media/mt/politics/john%20yoo%20fullness.jpg> John Yoo - Defender of the presidential right to crush testicles. Tenured professor at UC Berkeley."},
+    {searchString: "Zoolander", explanationText: "<img src=https://m.media-amazon.com/images/M/MV5BODI4NDY2NDM5M15BMl5BanBnXkFtZTgwNzEwOTMxMDE@._V1_.jpg> The critics didn't like it but they're not real America"},
+    {searchString: "Al Smith Dinner", explanationText: "<img src=https://bloximages.chicago2.vip.townnews.com/lompocrecord.com/content/tncms/assets/v3/editorial/5/21/5213207a-a022-5dda-b29e-0a21c70b89d0/58093b334c7b7.image.jpg?resize=200%2C160> Not everyone can be Conan"},
+    {searchString: "embryonic stem cell", explanationText: "<img src=https://upload.wikimedia.org/wikipedia/commons/f/f8/Humanstemcell.JPG> Eugh."},
+    {searchString: "Dick Armey", explanationText: "<img src=https://www.desmog.com/wp-content/uploads/2021/03/armey.jpeg> Dick Armey - Backup"},
+    {searchString: "Chuck Colson", explanationText: "<img src=https://www-images.christianitytoday.com/images/64432.jpg> Chuck Colson - The White House's hotline to Heaven"},
+    {searchString: "Donna Rice", explanationText: "<img src=https://www.miamiherald.com/news/local/a2k7pf/picture2185642/alternates/FREE_1140/hartrice.jpeg> Donna Rice - Ended Hart's previous campaign long ago"},
+    {searchString: "unitary executive theory", explanationText: "<img src=https://cdn.theatlantic.com/media/mt/garrett_epps/Epps_Myth3_6-09_banner.jpg> Means the president can do whatever he wants with the whole executive branch."},
+    {searchString: "Condi", explanationText: "<img src=https://cdn.britannica.com/14/127914-004-8E05E7F8/Condoleezza-Rice-George-W-Bush-2009.jpg> Condoleezza Rice - The tippity top National Security Advisor"},
+    {searchString: "The old he-coon", explanationText: "<img src=https://www.grandmagazine.com/wp-content/uploads/2021/03/Lawton-Chiles_5641c2e9452a4.jpg> Lawton Chiles - More responsible for your presidency than the SCOTUS"},
+    {searchString: "Hulk Hogan", explanationText: "<img src=https://qph.cf2.quoracdn.net/main-qimg-ac7a3e420c380ae9a4260fa3fc094de0-lq> YEA BROTHER"},
+    {searchString: "Hummer-driving white suburbanites", explanationText: "<img src=https://us-tuna-sounds-images.voicemod.net/e0cff9d4-fe8d-49a2-9e90-ca07fada80cb-1711334247259.png> YEA RUMSFELD"}
+  ]
 
 //#startcode
 
