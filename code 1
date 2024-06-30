@@ -310,87 +310,52 @@ jet_data = {
     "customQuote": "\"Hart began to sound the death knell, Clinton made the party dying, and Bradley ruined it.\" - New York Times"
 }
 
+e.displayTooltips = true;
+
 function addDynamicCSS() {
   var css = `
+      .inner_window_question h3 .mytooltip{
+          background-color: #ffb7b7;
+      }
 
-  label {
-    display:inline-block;
-  }
+      .mytooltip {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          background-color: #ffd0d0;
+      }
 
-  .inner_window_question h3 .mytooltip{
-      background-color: lightskyblue;
-  }
+      .mytooltip .mytooltiptext {
+          width: 240px;
+          background-color: #ffd0d0;
+          color: black;
+          text-align: center;
+          border-radius: 6px;
+          padding: 10px;
+          position: absolute;
+          z-index: 99;
+          bottom: 20%;
+          left: 20%;
+          margin-left: -90px;
+          opacity: 0;
+          transition: opacity 0.3s;
+          border: 1px solid black;
+          pointer-events: none;
+          font-size: 13px !important;
+          line-height: 1.5em !important;
+          font-weight: normal !important;
+          font-style: normal !important;
+      }
 
-  .mytooltip {
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-      background-color: lightblue;
-  }
+      .mytooltip .mytooltiptext img {
+          max-width: 240px;
+          height: auto;
+      }
 
-  .mytooltip .mytooltiptext {
-      width: 240px;
-      background-color: lightgray;
-      color: black;
-      text-align: center;
-      border-radius: 6px;
-      padding: 10px;
-      position: absolute;
-      z-index: 99;
-      bottom: 20%;
-      left: 20%;
-      margin-left: -90px;
-      opacity: 0;
-      transition: opacity 0.3s;
-      border: 1px solid black;
-      pointer-events: none;
-      font-size: 13px !important;
-      line-height: 1.5em !important;
-      font-weight: normal !important;
-      font-style: normal !important;
-  }
-
-  .mytooltip .mytooltiptext img {
-      max-width: 240px;
-      height: auto;
-  }
-
-  .mytooltip:hover .mytooltiptext {
-      opacity: 1;
-      transition-delay: 0.5s;
-  }
-
-
-.mytooltip:hover .bubble {
-opacity: 1;
-transition-delay: 0.5s;
-}
-.bubble {
-  width: 240px;
-  background-color: lightgray;
-  color: black;
-  text-align: center;
-  border-radius: 6px;
-  padding: 10px;
-  position: absolute;
-  z-index: 99;
-  bottom: 20%;
-  left: 20%;
-  margin-left: -90px;
-  opacity: 0;
-  transition: opacity 0.3s;
-  border: 1px solid black;
-  pointer-events: none;
-  font-size: 13px !important;
-  line-height: 1.5em !important;
-  font-weight: normal !important;
-  font-style: normal !important;
-}
-
-.mytooltip:hover .bubble-bottom-left:before,
-.mytooltip:hover .bubble-bottom-left:after {
-opacity: 1;
-}
+      .mytooltip:hover .mytooltiptext {
+          opacity: 1;
+          transition-delay: 0.5s;
+      }
   `;
 
   var styleElem = document.createElement('style');
@@ -401,48 +366,51 @@ opacity: 1;
   document.head.appendChild(styleElem);
 }
 
+
 addDynamicCSS();
 
 tooltipList = [
-  {searchString: "Want to know more about your options for running mate?", explanationText: "Your actions during the primaries determine your option of running mates. Each option for running mate can be unlocked through their own reactions to some of your stances. Some may be drawn to you by strong foreign policy stances, others may be drawn by your desire to build bridges and compromise. Try playing different strategies each time in order to find more options!"},
-  {searchString: "Gang of Eight", explanationText: "Another term for the State Committee on the State of Emergency, the plotters of the August Coup."},
-  {searchString: "NRP", explanationText: "The group of hardline communists that ousted Gorbachev during the August Coup."},
-  {searchString: "State Committee on the State of Emergency", explanationText: "The group of hardline communists that ousted Gorbachev during the August Coup."},
-  {searchString: "August Coup", explanationText: "The coup d'état on August 19th, 1991, which saw Soviet President Mikhail Gorbachev removed from power."},
-  {searchString: "NAFTA", explanationText: "Short for North American Free Trade Agreement, NAFTA is a trade agreement between the US, Canada, and Mexico."},
-  {searchString: "SSRs", explanationText: "Short for 'Soviet Socialist Republic'. Member states (or former member states) of the Union of Soviet Socialist Republics."},
-  {searchString: "SSR", explanationText: "Short for 'Soviet Socialist Republic'. Member states (or former member states) of the Union of Soviet Socialist Republics."},
-  {searchString: "'October Surprise' Theory", explanationText: "The allegations that in 1980, the Reagan/Bush campaign colluded with Iran to prevent the release of hostages, which could have helped Carter win the election."},
-  {searchString: "Akhromeyev", explanationText: "<img src=https://itsastronomical.com/assets/1996_EOH/tooltips/akhromeyev.png style='width:25%;height:25%;'><br>Sergey Akhromeyev - A Marshal of the Soviet Union. His assistance during the August Coup was perhaps vital to its success."},
-  {searchString: "Rutskoy", explanationText: "<img src=https://itsastronomical.com/assets/1996_EOH/tooltips/rutskoy.png style='width:25%;height:25%;'><br>Alexander Rutskoy - One of the Soviets Generals, and an ally of Yanayev."},
-  {searchString: "Kryuchkov", explanationText: "<img src=https://itsastronomical.com/assets/1996_EOH/tooltips/kryuchkov.png style='width:25%;height:25%;'><br>Vladimir Kryuchkov - One of the plotters of the August Coup. Formerly the head of the KGB, currently Prime Minister and a traitor to President Yanayev."},
-  {searchString: "Pugo", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/pugo.png' style='width:25%;height:25%;'><br>Boris Pugo - Soviet politician from Latvia, and Yanayev's right hand man. He is currently serving as Vice President of the Soviet Union after Yanayev siezed the Presidency for himself."},    
-  {searchString: "Begala", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/begala.png' style='width:25%;height:25%;'><br>Paul Begala - Hired by Wofford for his 1991 Senate campaign, Begala has become one of Wofford's closest advisors."},
-  {searchString: "Carville", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/carville.png' style='width:25%;height:25%;'><br>James Carville - A high ranking figure in Wofford's 1991 Senate campaign. Typically works with Paul Begala."}, 
-  {searchString: "Your campaign for Heinz's seat in 1991", explanationText: "In 1991, after the death of Senator John Heinz in a plane crash, Governor Bob Casey appointed Wofford to Heinz' Senate seat. He ran for the remaining term, and won, defeating US Attorney General Dick Thornburgh."}, 
-  {searchString: "LA Riots", explanationText: "In June of 1992, after a jury aquited Los Angeles Police Officers for use of excessive force against Rodney King, frustrations with racial tension boiled into multi-day civil disturbances."}, 
-  {searchString: "Willie", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/willie.png' style='width:25%;height:25%;'><br>Willie Brown - Speaker of the California State Assembly"}, 
-  {searchString: "Proposition 187", explanationText: "A ballot initiative in California for the purpose of denying illegal immigrants access to the state's social services, such as healthcare."}, 
-  {searchString: "Chirac", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/Chirac.png' style='width:25%;height:25%;'><br>Jacques Chirac - President of the French Republic, elected in 1995 as a conservative after the struggles of François Mitterrand's socialist government."},
-  {searchString: "Kinnock", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/Kinnock.png' style='width:25%;height:25%;'><br>Niel Kinnock - Prime Minister of the United Kingdom, elected in 1995 after Conservative Prime Minister John Major failed to pass a budget and forced a General Election. A member of the Labour Party."},
-  {searchString: "Struck", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/Struck.png' style='width:25%;height:25%;'><br>Peter Struck - Prime Minister of Germany, elected in 1996 after Björn Engholm (SPD) was forced to resign over conflicting reports he gave during an investigation into the death of another German politician. Struck is a member of the Social Democratic Party."},
-  {searchString: "Peres", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/Peres.png' style='width:25%;height:25%;'><br>Shimon Peres - Prime Minister of Israel, in office since the assassination of Yitzhak Rabin in 1995, having secured Labor another tenure in the Knesset earlier this year."},
-  {searchString: "Yeltsin", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/Yeltsin.png' style='width:25%;height:25%;'><br>Boris Yelstin - Former President of Russia, presumed dead during the August Coup."},
-  {searchString: "Gorby", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/Gorby.png' style='width:25%;height:25%;'><br>Mikhail Gorbachev - Former President of the Soviet Union, presumed dead during the August Coup."},
-  {searchString: "Gorbachev", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/Gorby.png' style='width:25%;height:25%;'><br>Mikhail Gorbachev - Former President of the Soviet Union, presumed dead during the August Coup."},
-  {searchString: "Slick Willie", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/Clinton.png' style='width:25%;height:25%;'><br>Bill Clinton - Governor of Arkansas and the Democratic Nominee for President in 1992. Slick Willie was a nickname given to him by many of his opponents."},
-  {searchString: "Brown", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/Brown.png' style='width:25%;height:25%;'><br>Kathleen Brown - California State Treasurer and your Democratic opponent for Governor of California in 1994. Daughter of Pat Brown, sister to Jerry Brown."},
-  {searchString: "Voodoo Wand", explanationText: "Also known as the 'Voodoo Stick'<br>The Voodoo Wand was a stick used by Ross Perot in his 1992 campaign advertisements, specifically when he would address economic concerns."},
-  {searchString: "The Internationale", explanationText: "Former State Anthem of the Soviet Union."},
-  {searchString: "Jim Sasser", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/sasser.png' style='width:25%;height:25%;'><br>Jim Sasser - Tennessee Senator, Democrat. Often compares himself to liberal-populist Estes Kefauver."},
-  {searchString: "Sasser's bid for leadership", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/senatelead.png' style='width:70%;height:70%;'><br>Ater George Mitchell's retirement, Jim Sasser was expected to become Senate Majority Leader. After an election that went not as well as Democrats expected, Tom Daschle won the vote for the position."},
-  {searchString: "Dick Gephardt", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/dick.png' style='width:25%;height:25%;'><br>Dick Gephardt - Incumbent Speaker of the United States House of Representatives."},
-  {searchString: "Bill Richardson", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/bill.png' style='width:25%;height:25%;'><br>Bill Richardson - House Representative from New Mexico."},
-  {searchString: "Casey", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/casey.png' style='width:25%;height:25%;'><br>Bob Casey - Former Governor of Pennsylvania (1987-1995)"},
-  {searchString: "Singel", explanationText: "<img src='https://itsastronomical.com/assets/1996_EOH/tooltips/singel.png' style='width:25%;height:25%;'><br>Mark Singel - Incumbent Governor of Pennsylvania (1995-)"},
-  {searchString: "'White Hands' ad", explanationText: "An advertisement ran by Jesse Helms' campaign for re-election in 1990. Critics argued that  it attempted to stoke racial divisons over affirmative action, compounded by the fact that Helms' opponent, Harvey Gantt, was a black man."},
-
-  {searchString: "glitch", explanationText: "<video width='200' autoplay controls><source src='https://itsastronomical.com/assets/1996_EOH/tooltips/WoffordWhoAmI.mp4' type='video/mp4'></video> <br>What the Frick"} 
+  {searchString: "Conservative Party", explanationText: "<img src=https://i.imgur.com/Vy0pMNj.png> The Conservative Party of New York is a third-party confined to the state of New York. It is the party in which James Buckley ran under in both 1968 and 1970 for Senate, as well as his brother Bill Buckley Jr. in the 1965 New York City mayoral election."},
+  {searchString: "peace in Vietnam", explanationText: "The United States emerged victorious in the Vietnam War after an assassination by the CIA, internal instability, and the two pro-North countries going to war with eachother led to the collapse of North Vietnam."},
+  {searchString: "ROC", explanationText: "Short for the ‘Republic of China’ or Taiwan, a nation that has a strong claim to the true China. Territories include the island of Taiwan and various southern mainland port cities ceded to them after the conclusion of the Sino-Soviet War."},
+  {searchString: "Joint Economic Committee", explanationText: "<img src=https://files.catbox.moe/5l4xd0.png> The Joint Economic Committee is responsible for the accurate reporting of the current American economic situation, gaining particular prominence recently for its active role in the current slump. It is one of four standing committees in Congress."},
+  {searchString: "Sino-Soviet War", explanationText: "The Sino-Soviet War was a conventional war between the two communist powers of the Soviet Union and the People’s Republic of China that lasted from 1969-1974. The war broke out after extensive deterioration in diplomacy between the two nations following the 1969 border clashes."},
+  {searchString: "Treaty of Leningrad", explanationText: "The 1974 treaty that formally ended the Sino-Soviet War. The war resulted in a Soviet victory and led to the effective dissolution of the Maoist Chinese state in favor of a Soviet-aligned Marxist-Leninist puppet. The treaty also resulted in an independent Tibet and the cession of various southern port cities to the Republic of China, also known as Taiwan."},
+  {searchString: "PAVN", explanationText: "The acronym for the ‘People’s Army of Vietnam’, the PAVN was the official military force of the communist North Vietnamese state but was later dissolved after the victory of the anti-communist forces in 1973."},
+  {searchString: "Viet Cong", explanationText: "The Viet Cong was the communist movement in South Vietnam, now the unified Republic of Vietnam, that sought to unify the nation under communist rule. Commanded by North Vietnam against the South at the time, it continues to exist as a constant insurgency threat that is determined to upend the anti-communist regime."},
+  {searchString: "stagflation", explanationText: "<img src=https://files.catbox.moe/k16si0.png> Stagflation is a term that has been recently coined to describe the current economic situation. The basis of stagflation is as follows: high inflation, slowed growth rate, and high unemployment."},
+  {searchString: "War on Drugs", explanationText: "<img src=https://files.catbox.moe/4ckpi5.png> The ‘War on Drugs’ is the name given to the Reagan Administration’s policy of tackling the drug issue in America. It goes after drug users, distributors, and manufacturers. It’s one part of many policies by the Reagan Administration that seeks to end or reverse ‘societal decay’."},
+  {searchString: "Middle East", explanationText: "<img src=https://files.catbox.moe/dzczmj.png> The Middle East is a hotbed of discussion due to the oil embargo imposed on the United States and other nations that supported Israel in the 1973 Yom Kippur War. The oil embargo has led to the Oil Crisis and is attributed partly to the worsening economic situation."},
+  {searchString: "Small Business Act", explanationText: "<img src=https://files.catbox.moe/6343iv.png> A failed act proposed by Senator James L. Buckley of New York that sought to amend the Small Business Investment Act of 1958 to increase funding for small businesses via the Small Business Administration."},
+  {searchString: "Roe v. Wade", explanationText: "<img src=https://files.catbox.moe/2nxv9a.png> A landmark Supreme Court decision on abortion that ruled 5-4 in favor of Henry Wade. This effectively denied federal protection of abortion and left the issue up to the various states, in which many banned the practice. It is still a heated topic amongst liberals and conservatives. <i>(Disclaimer: This does not reflect my opinion on the issue of abortion nor do I wish to offend anyone.)</i>"},
+  {searchString: "Wade", explanationText: "Henry Wade is the district attorney for Dallas County, Texas and was the defendant in Roe v. Wade, in which the Supreme Court ruled in favor of."},
+  {searchString: "Equal Rights Amendment", explanationText: "<img src=https://i.imgur.com/nyCP2Ax.jpeg> The Equal Rights Amendment is a proposed Constitutional amendment that passed both chambers of Congress and has yet to receive the necessary 3/4ths (38 states) of all states in favor of ratification. The amendment would guarantee and uphold equal rights for all Americans regardless of sex. It is supported by liberals and many womens’ groups, while opposed by conservatives."},
+  {searchString: "Phyllis Schlafly", explanationText: "<img src=https://files.catbox.moe/8rhepq.png> Phyllis Schlafly is the leader of a growing conservative movement of women who are in opposition to the ratification of the Equal Rights Amendment. Considered to be an anti-feminist, she also opposes abortion."},
+  {searchString: "National Review", explanationText: "<img src=https://files.catbox.moe/kqesaj.png> The National Review is an editorial magazine founded by William F. Buckley Jr. in 1955. It discusses issues of the day through a conservative lens."},
+  {searchString: "Joint Committee on Military Conduct in Vietnam", explanationText: "<img src=https://files.catbox.moe/4lwj5a.png> The Joint Committee on Military Conduct in Vietnam is exactly as the name suggests. Formed by Representatives and Senators, it seeks to investigate the actions of the US Military during the Vietnam War. Many members of Congress were concerned about ethical conduct by American troops and if they were following international law."},
+  {searchString: "anti-communist Polish militia", explanationText: "<img src=https://i.imgur.com/Kw51fgu.png> The PNLS or ‘Polish Nation for Liberation and Solidarity’ is the main anti-communist militia force in Poland following the Warsaw uprising against the Soviet Union. They are fighting for the end of communist rule and independence from the Soviet Union."},
+  {searchString: "Lee Atwater", explanationText: "<img src=https://files.catbox.moe/fg910l.png> Harvey LeRoy Atwater, or Lee Atwater as of recent, is an up and coming Republican insider. Currently associated with the College Republicans, he made massive efforts to help the Reagan campaign in ’72 via getting young voters to go up to the ballot box and vote for President Reagan. It seems like his future seems promising, maybe he'll get to managing presidential campaigns someday."},
+  {searchString: "George Bush", explanationText: "<img src=https://i.imgur.com/cqwj2ZI.png> George Bush is currently serving as Director of the CIA. A moderate-conservative, he is generally will liked by the party, minus some restraint from the more hardline conservatives. As Director, he helped plan and execute the CIA mission assassinating PAVN General Lo Nguyen Giap, which eventually led to the end of the Vietnam War with an American victory. Because of this, he has high public support."},
+  {searchString: "John Tower", explanationText: "<img src=https://i.imgur.com/OYJQfvq.png> John Tower is currently Senator from Texas, replacing Lyndon Johnson in 1961 after he became Vice President. He has been an ally to the Reagan Administration in the Senate, providing key votes on various pieces of legislation."},
+  {searchString: "John Volpe", explanationText: "<img src=https://i.imgur.com/UFmyPnZ.png> Secretary John Volpe is a well known and rather popular man. Appointed as Secretary of State by Reagan in 1969, he has helped with shaping Reagan's foreign policy. Conservatives love his foreign policy stances, but aren't fond of his social ones. A moderate Republican, Volpe is your classic northeastern Republican. Before serving as Secretary of State, Volpe was Governor of Massachusetts."},
+  {searchString: "Richard Nixon", explanationText: "<img src=https://files.catbox.moe/kl2xom.png> Current National Security Advisor and former Vice President of the United States, Richard Nixon has had a storied career in politics. He was the original frontrunner for the 1968 Republican nomination but decided against running, for whatever reason. Tapped as NSC Chairman under Reagan, he was the key advisor that led Reagan into Cambodia. He has an awkward social personality and isn't really liked by the American populace."},
+  {searchString: "Jesse Helms", explanationText: "<img src=https://i.imgur.com/i9OJ538.png> Jesse Helms is an unabashed conservative, and probably the man most aligned with President Reagan out of the candidates in the running. First elected to the Senate in 1972, he has been a critical ally for the current administration, always there to vote on legislation that the president wants. But outside of his loyalty and conservatism, he holds no other weight in the party."},
+  {searchString: "Barry Goldwater", explanationText: "<img src=https://i.imgur.com/PP7znC9.png> Barry Goldwater is one of the Senators for Arizona and is the prime example of what a conservative is, well until Ronald Reagan became president. Promoting conservatism as an ideology that can counter the liberalism that was festering, he ultimately failed in his mission getting destroyed in the ’64 election against Lyndon."},
+  {searchString: "Ronald Reagan", explanationText: "<img src=https://files.catbox.moe/k9v45e.png> Ronald Reagan is currently the 37th President of the United States of America and governor to California before becoming POTUS. In domestic affairs, Reagan would govern as a ‘Law & Order’ and committed conservative. In foreign affairs he would be tough on the Soviets and PRC while also working to continue the nation's vested interest in the Asian sphere with continued aid for Vietnam and Taiwan."},
+  {searchString: "George Romney", explanationText: "<img src=https://i.imgur.com/IuOpruH.png> George Romney is the current Vice President to President Reagan and was the governor to Michigan before being in his position. He decided to not run in the Republican primary in ’76."},
+  {searchString: "Pat Buchanan", explanationText: "<img src=https://files.catbox.moe/6fv844.png> Pat Buchanan is a one of the many figures emerging from the South for the Republicans. A more populistic and bombastic Republican than many are used too. Defiant with urges of compromise and devout faith towards ideology, he certainly fits with the more conservative elements that are gaining more and more prominence in the party."},
+  {searchString: "Volcker", explanationText: "<img src=https://files.catbox.moe/4eoye6.png> Paul Volcker is the current chairman to the Federal Reserve, and is in quite a predicament. The economy seems to look at getting sour, as stagflation seems to get ever more present in American life. To deal with this, the chairman has been doing a strategy of raising interest rates to get the economy under control. Whether this solution is a good one remains to be seen."},
+  {searchString: "Ted Kennedy", explanationText: "<img src=https://files.catbox.moe/3qmwp8.png> Ted Kennedy is one of the Senators for Massachusetts and is a part of the more liberal wing of the Democratic party. Pushing for things such as universal healthcare and higher taxes to the wealthy, it's clear to see why he is among the favorites with many in the party."},
+  {searchString: "Reubin Askew", explanationText: "<img src=https://files.catbox.moe/vz87bx.png> Elected Governor of Florida in 1970, Askew has been a rising star in the Democratic Party, He is young and fairly charismatic, but generally soft-spoken. He is a strong supporter of civil rights, government transparency <i>(criticizing Reagan's decision to escalate Vietnam without consulting Congress)</i>, and tax reform amidst the ongoing economic slump."},
+  {searchString: "Pork Chop Gang", explanationText: "<img src=https://files.catbox.moe/swfdxb.png> Up until Reubin Askew took office as Governor of Florida in 1971, this group dominated the Florida legislature. Made up of around 20-30 Democratic Party legislators from northern Florida, they remained committed to preserving segregation and their power in the state."},
+  {searchString: "reformer", explanationText: "You are known and respected as a progressive reformer, something rather new to Southern politics. You are also one of the many leaders of the “New South” movement."},
+  {searchString: "incident", explanationText: "<img src=https://i.imgur.com/N4b5IDg.png> In July of 1969, Senator Ted Kennedy drove his car off a bridge on Chappaquiddick Island in Massachusetts. This resulted in the death of his passenger, Mary Jo Kopechne, by drowning. Kennedy has been criticized for his mere slap on the wrist, only losing his license for a little over a year. His light consequences have since been attributed to his name and family reputation. Kennedy himself has apologized profusely for the incident."},
+  {searchString: "time for choosing", explanationText: "<img src=https://files.catbox.moe/ir2hbu.png> The name of Ronald Reagan’s famous 1964 speech supporting the Republican presidential nominee Barry Goldwater. He has since used the term in his successful 1968 and 1972 presidential campaigns."},
+  {searchString: "corruption charge", explanationText: "<img src=https://i.imgur.com/mE069yW.png> During the 1976 primary season, Jesse Unruh was accused of corruption and almost impeached by the California state legislature after documents of payments were found in the home of an Unruh confidant. It was later confirmed to be hoax, perpetrated by a state-wide political ring headed by Lieutenant Governor Sam Yorty and Secretary of State Jerry Brown, with the support of the Sacramento police department, to bring down the Governor."},
+  {searchString: "25th", explanationText: "<img src=https://i.imgur.com/XDaDo5B.png> The 25th Amendment properly outlined presidential succession."},
+  {searchString: "26th", explanationText: "<img src=https://i.imgur.com/x1F5xxw.png> The 26th amendment reduced the minimum age to vote from 21 to 18 years of age."},
+  {searchString: "the assassination of George Wallace", explanationText: "<img src=https://i.imgur.com/4bdyGRY.png> Governor George Wallace was assassinated in 1972 during the Democratic primaries for president, in which he was a candidate for. Upon taking to the stage to deliver a speech, he was fired upon by a young man named Arthur Bremer, where he was struck in the chest and killed instantly."},
+  {searchString: "James L. Buckley", explanationText: "<img src=https://i.imgur.com/sIHYdUy.png> James Buckley is a Senator from the state of New York, having won a three-way race under the Conservative Party banner in 1970. Nationally aligning with the Republican Party, Buckley clinched the nomination though being perceived as an outsider. He is the older brother of the conservative media mogul William F. Buckley Jr."}
 ]
 
 //#startcode
