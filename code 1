@@ -1,0 +1,335 @@
+campaignTrail_temp.global_parameter_json = [
+    {
+        "model": "campaign_trail.global_parameter",
+        "pk": 1,
+        "fields": {
+            "vote_variable": 1.125,
+            "max_swing": 0.12,
+            "start_point": 0.94,
+            "candidate_issue_weight": 10,
+            "running_mate_issue_weight": 3,
+            "issue_stance_1_max": -0.71,
+            "issue_stance_2_max": -0.3,
+            "issue_stance_3_max": -0.125,
+            "issue_stance_4_max": 0.125,
+            "issue_stance_5_max": 0.3,
+            "issue_stance_6_max": 0.71,
+            "global_variance": 0.01,
+            "state_variance": 0.005,
+            "question_count": 30,
+            "default_map_color_hex": "#C9C9C9",
+            "no_state_map_color_hex": "#999999"
+        }
+    }
+]
+
+campaignTrail_temp.election_json = [
+    {
+        "model": "campaign_trail.election",
+        "pk": 9,
+        "fields": {
+            "year": 2000,
+            "summary": "Since its founding in 1928, the National Revolutionary Party’s “perfect dictatorship” has never been more fragile than it is today. The NRP lost its legislative majority for the first time since its founding in the midterm elections two years ago. President Bradley’s unpopularity only exacerbated the bitterness of the defeat. The United States entered its first general election of the new century with opposition growing from both the left and the right.<p> <ul><li>Michael Bloomberg will attempt to become the first president elected from the opposition party since 1911 under the slogan \"Reform is not enough.\"</li><li>Joe Lieberman will try to convince the public that the NRP is still capable of governing.</li><li>Robert Kennedy will try to bring revolutionary nationalism back to White House after three failures.",
+            "image_url": "https://i.imgur.com/BH3UKNA.jpeg",
+            "winning_electoral_vote_number": 270,
+            "advisor_url": "https://cdn.cnn.com/cnn/interactive/2018/07/politics/election-2000-over-time/assets/photos/400_square/V29142-05-11072000.jpg",
+            "recommended_reading": "<h4 style=\"margin-top: 0.5em;\">The Florida Recount / 2000 Election</h4><a href=\"http://www.amazon.com/exec/obidos/ASIN/B000RH0DVM/amhius20-20\" target=”_blank”>Jeffrey Toobin - Too Close to Call: The Thirty-Six-Day Battle to Decide the 2000 Election</a></br><a href=\"http://www.amazon.com/exec/obidos/ASIN/B00EMLDHFI/amhius20-20\" target=”_blank”>Andrew E. Busch & James W. Ceaser - The Perfect Tie: The True Story of the 2000 Presidential Election</a></br><a href=\"http://www.amazon.com/exec/obidos/ASIN/032110028X/amhius20-20\" target=”_blank”>Larry Sabato - Overtime! The Election 2000 Thriller</a><h4>Books by the Candidates</h4><a href=\"http://www.amazon.com/exec/obidos/ASIN/B000C4SV2I/amhius20-20\" target=”_blank”>George W. Bush - A Charge to Keep: My Journey to the White House</a></br><a href=\"http://www.amazon.com/exec/obidos/ASIN/0452269350/amhius20-20\" target=”_blank”>Al Gore - Earth in the Balance</a></br><a href=\"http://www.amazon.com/exec/obidos/ASIN/B003YFIYWY/amhius20-20\" target=”_blank”>The Ralph Nader Reader</a><h4>Links</h4><a href=\"http://www.digitalhistory.uh.edu/disp_textbook.cfm?smtID=2&psid=3377\" target=”_blank”>Digital History - The Disputed Election of 2000</a></br><a href=\"http://www.pbs.org/wnet/supremecourt/future/landmark_bush.html\" target=”_blank”><em>Bush v. Gore</em></a></br><a href=\"http://www.vanityfair.com/news/2004/10/florida-election-2000\" target=”_blank”>The Path to Florida</a></br><a href=\"http://www.historyplace.com/speeches/gore-concedes.htm\" target=”_blank”>Al Gore Concedes the 2000 Election</a>",
+            "has_visits": 1,
+            "no_electoral_majority_image": "https://www.jetsimon.com/public/static/images/2012-no-majority.jpg",
+            "creator": "Dan Bryan",
+            "display_year": "2000 - The End of the Revolution"
+        }
+    }
+]
+
+campaignTrail_temp.candidate_json = [
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 77,
+        "fields": {
+            "first_name": "Michael",
+            "last_name": "Bloomberg",
+            "election": 9,
+            "party": "Conservative",
+            "state": "New York",
+            "priority": 1,
+            "description": "<p>Michael Bloomberg emerged as the conservative nominee after an uncontested primary. As New York's first non-NRP governor since 1931, he is known for his pro-business fiscally moderate policies and crackdown on corruption.</p><p>Bloomberg entered the campaign on a theme of fighting corruption and crime, promising to crack down on the spoils system that had flourished under the NRP, implement a \"law and order\" policy to crack down on crime, and revive the economy through further neo-liberalism reforms.</p><p>Many expect Bloomberg to be the first president in decades who is not a member of the NRP, but he must prove he is capable of achieving a true transition to a multi-party system in the United States.",
+            "color_hex": "#ff9955",
+            "secondary_color_hex": "#FFA0A0",
+            "is_active": 1,
+            "image_url": "https://i.imgur.com/8Zhtoxq.png",
+            "electoral_victory_message": "<h3>Congratulations! You have won the 2000 election.</h3><p>Confounding the predictions of many experts, you were able to turn the tables on Al Gore, in spite of the economy and Clinton's popularity.</p><p>On the political front, you can push for tax cuts to spur the economy and return the budget surplus to the American people. You might also pursue education and immigration reform, individual Social Security accounts, and new laws to defend the family and the sanctity of life.</p>",
+            "electoral_loss_message": "<h3>Sorry! You have lost the 2000 election.</h3><p>Perhaps it was always a long-shot, with the Democrats in such a commanding position after eight years of Bill Clinton. In any case, at least you are still the Governor of Texas.</p><p>Expect Al Gore to unleash a new round of government programs and environmental regulations. You are still youngish, however. If the election was close this time, perhaps you can run again in 2004, or work on behalf your brother Jeb.</p>",
+            "no_electoral_majority_message": "<h3>Wow! You have won in a squeaker.</h3><p>No candidate achieved a majority of the electoral votes, marking the first time this has happened since 1824. Fortunately for you, the majority of U.S. states have Republican controlled congressional delegations, and they will cast their votes accordingly.</p><p>Given the incredibly close nature of the election, you will surely be expected to govern as a moderate, conciliatory President. Right??</p>",
+            "description_as_running_mate": "''",
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 78,
+        "fields": {
+            "first_name": "Joe",
+            "last_name": "Lieberman",
+            "election": 9,
+            "party": "National Revolutionary",
+            "state": "Connecticut",
+            "priority": 2,
+            "description": "<p>Connecticut Senator Joe Lieberman is nominated by the NRP after a highly contentious primary, defeating Al Gore and Dennis Kucinich. Just a decade ago, this will have guaranteed him victory in the election, but now, after the nomination, Lieberman will still face a tough competition.</p><p>Lieberman is a supporter of the liberal reforms implemented by the NRP since Gary Hart, which makes him seriously lack trust among the left wing of the party. In addition, his lack of charisma does not help to gain the trust of voters.</p></p><p>Despite all these headwinds, Lieberman, who has the support of the establishment, is currently leading in the polls. The question is whether he can maintain his lead or he will become the first NRP candidate to lose in decades.",
+            "color_hex": "#000080",
+            "secondary_color_hex": "#90C0FF",
+            "is_active": 1,
+            "image_url": "https://i.imgur.com/ALRikW4.png",
+            "electoral_victory_message": "<h3>Congratulations! You have won the 2000 election.</h3><p>Though it was perhaps expected, you could have easily faltered at a number of points. Credit to you for pulling through.</p><p>On the political front, you can continue the Clinton legacy and strengthen Social Security for generations to come. Perhaps you can succeed on health care where Clinton came up short? Or maybe you can create a future of renewable energy for America. Just be wary of a (George or Jeb?) Bush challenge in 2004.</p>",
+            "electoral_loss_message": "<h3>Sorry! You have lost the 2000 election.</h3><p>Surely the second-guessing will be intense, but if things were close you could probably run again in 2004.</p><p>It seems that with George W. Bush and a Republican majority, the United States can expect some conservative policy-making over the next four years. Hopefully Bush comes through on his promise to govern in a bipartisan, conciliatory manner. A lot should depend on the margin of his victory, and whether it was large or small.</p>",
+            "no_electoral_majority_message": "<h3>Sorry! You have lost in a squeaker.</h3><p>No candidate achieved a majority of the electoral votes, for the first time since 1824. Unfortunately for you, a majority of states have Republican controlled congressional delegations.</p><p>It seems that with George W. Bush and a Republican majority, the United States can expect some conservative policy-making over the next four years. Hopefully Bush comes through on his promise to govern in a bipartisan, conciliatory manner.</p>",
+            "description_as_running_mate": "''",
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 79,
+        "fields": {
+            "first_name": "Robert F.",
+            "last_name": "Kennedy",
+            "election": 9,
+            "party": "People's Democracy",
+            "state": "Massachusetts",
+            "priority": 3,
+            "description": "<p>After repeated defeats, brother of former Vice President John F. Kennedy, former Massachusetts Governor Robert F. Kennedy once again entered the presidential race.</p><p>In opposition to Gary Hart's liberal reforms, Kennedy and many left-wing members of the NRP quit the party and formed the People's Democracy Party. However, since losing the 1988 election, Kennedy has repeatedly participated in and lost elections, accusing the election of fraud after each defeat. This has even caused dissent against him within his own party.</p><p>Despite this, Kennedy still decided to run again. Faced with increasingly fierce struggles within the party, this might be his last chance to bring the New Deal ideals and the revolutionary nationalism back to the White House.",
+            "color_hex": "#ffd700",
+            "secondary_color_hex": "#A1FFA1",
+            "is_active": 1,
+            "image_url": "https://i.imgur.com/Rp78EUR.jpg",
+            "electoral_victory_message": "<h3>Congratulations! You have won the 2000 election.</h3><p>This was definitely not supposed to happen. Good luck!</p>",
+            "electoral_loss_message": "<h3>As expected, you have lost the 2000 election.</h3><p>The legacy of this campaign depends on a couple of factors. First of all, did you receive 5% of the popular vote? If so, congratulations! You will enable the Green Party to run a vigorous campaign in 2004 and present a true choice to the American people. Also, the Democrats were a little peeved that you \"stole\" votes from them in this election. Hopefully that doesn't lead to a backlash.</p>",
+            "no_electoral_majority_message": "<h3>Wow! No candidate received 270 electoral votes, but the House will elect George W. Bush as President.</h3><p>Did you receive 5% of the popular vote? If so, congratulations! You will enable the Green Party to run a vigorous campaign in 2004 and present a true choice to the American people. Also, the Democrats were a little peeved that you \"stole\" votes from them in this election. Hopefully that doesn't lead to a backlash, especially since they will lose the vote in the House.</p>",
+            "description_as_running_mate": "''",
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 80,
+        "fields": {
+            "first_name": "Other",
+            "last_name": "Candidates",
+            "election": 9,
+            "party": "N/A",
+            "state": "N/A",
+            "priority": 4,
+            "description": "''",
+            "color_hex": "#29d145",
+            "secondary_color_hex": "#FFFFC0",
+            "is_active": 0,
+            "image_url": "''",
+            "electoral_victory_message": "''",
+            "electoral_loss_message": "''",
+            "no_electoral_majority_message": "''",
+            "description_as_running_mate": "''",
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 81,
+        "fields": {
+            "first_name": "John",
+            "last_name": "Danforth",
+            "election": 9,
+            "party": "Conservative",
+            "state": "Missouri",
+            "priority": 5,
+            "description": "''",
+            "color_hex": "#FF0000",
+            "secondary_color_hex": "#FFA0A0",
+            "is_active": 0,
+            "image_url": "https://i.imgur.com/ehl76AU.png",
+            "electoral_victory_message": "''",
+            "electoral_loss_message": "''",
+            "no_electoral_majority_message": "''",
+            "description_as_running_mate": "<p>John Danforth is your first choice for running mate. As the first Missouri senator in years not to be a member of the NRP, he was elected in 1992, and re-elected in 1998 on a conservative wave. He is a moderate, but trusted by right winger, and comes from a competitive state, all of which make him your best choice.</p><p>Danforth is not without flaws, however, his long-standing and unwavering opposition to the death penalty seems awkward and out of place in the current climate of rising crime, which may undermine the credibility of your \"law and order\" platform.",
+            "candidate_score": 0,
+            "running_mate": true
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 85,
+        "fields": {
+            "first_name": "Richard",
+            "last_name": "Shelby",
+            "election": 9,
+            "party": "National Revolutionary",
+            "state": "Alabama",
+            "priority": 9,
+            "description": "''",
+            "color_hex": "#0000FF",
+            "secondary_color_hex": "#90C0FF",
+            "is_active": 0,
+            "image_url": "https://i.imgur.com/EQX2ZS6.png",
+            "electoral_victory_message": "''",
+            "electoral_loss_message": "''",
+            "no_electoral_majority_message": "''",
+            "description_as_running_mate": "<p>Richard Shelby is a senator from Alabama. As a member of the conservative wing of the NRP, Shelby is known for his opposition to abortion and LGBT rights and his support for the flat tax. Like you, he is also a supporter of the privatization reforms started by Hart.</p><p>Although Shelby comes from a safe NRP state, his conservatism can be an effective counterbalance to your social liberalism and solidify Southern votes. However, your partnership will undoubtedly not be particularly pleasant.",
+            "candidate_score": 0,
+            "running_mate": true
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 89,
+        "fields": {
+            "first_name": "Bernie",
+            "last_name": "Sanders",
+            "election": 9,
+            "party": "People's Democracy",
+            "state": "Vermont",
+            "priority": 13,
+            "description": "''",
+            "color_hex": "#00C100",
+            "secondary_color_hex": "#A1FFA1",
+            "is_active": 0,
+            "image_url": "https://i.imgur.com/veLrAzG.png",
+            "electoral_victory_message": "''",
+            "electoral_loss_message": "''",
+            "no_electoral_majority_message": "''",
+            "description_as_running_mate": "<p>Current Vermont Governor Bernie Sanders is the first elected governor of the People's Democracy Party and an avowed socialist. Since he served as PDP chairman, Sanders is also a key ally of yours in the party. It is a natural choice to choose him as your running mate.</p><p>As one of the founding members of the PDP, Sanders will help you unite a party that is increasingly disaffected after your multiple defeats. Also, Sanders will boost your support in New England. \nApparently, choosing him as your running mate would also boost turnout among left-wing voters.</p><p>However, as an avowed socialist, Sanders may put off some of the moderate leftists you need to win over. <p>",
+            "candidate_score": 0,
+            "running_mate": true
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 90,
+        "fields": {
+            "first_name": "Pete",
+            "last_name": "McCloskey",
+            "election": 9,
+            "party": "Green",
+            "state": "California",
+            "priority": 14,
+            "description": "''",
+            "color_hex": "#FFFF00",
+            "secondary_color_hex": "#FFFFC0",
+            "is_active": 0,
+            "image_url": "''",
+            "electoral_victory_message": "''",
+            "electoral_loss_message": "''",
+            "no_electoral_majority_message": "''",
+            "description_as_running_mate": "''",
+            "candidate_score": 0,
+            "running_mate": true
+        }
+    }
+]
+
+campaignTrail_temp.running_mate_json = [
+    {
+        "model": "campaign_trail.running_mate",
+        "pk": 57,
+        "fields": {
+            "candidate": 80,
+            "running_mate": 90
+        }
+    },
+    {
+        "model": "campaign_trail.running_mate",
+        "pk": 56,
+        "fields": {
+            "candidate": 79,
+            "running_mate": 89
+        }
+    },
+    {
+        "model": "campaign_trail.running_mate",
+        "pk": 48,
+        "fields": {
+            "candidate": 77,
+            "running_mate": 81
+        }
+    },
+    {
+        "model": "campaign_trail.running_mate",
+        "pk": 52,
+        "fields": {
+            "candidate": 78,
+            "running_mate": 85
+        }
+    }
+]
+
+campaignTrail_temp.credits = "u/Business_End_9365"
+
+campaignTrail_temp.opponents_default_json = [
+    {
+        "election": 9,
+        "candidates": [
+            77,
+            78,
+            79,
+            80
+        ]
+    }
+]
+
+campaignTrail_temp.opponents_weighted_json = [
+    {
+        "election": 9,
+        "candidates": [
+            77,
+            78,
+            79,
+            80
+        ]
+    }
+]
+
+campaignTrail_temp.temp_election_list = [
+    {
+        "id": 9,
+        "year": 2000,
+        "is_premium": 0,
+        "display_year": "2000 - The End of the Revolution"
+    }
+]
+
+jet_data = {
+    "headerColor": "#08491c",
+    "windowColor": "#2a6822",
+    "containerColor": "#26265a",
+    "innerWindowColor": "#2c5ea0",
+    "bannerImageUrl": "https://i.imgur.com/bEh64d6.jpg",
+    "backgroundImageUrl": "",
+    "endingTextColor": "#000000",
+    "customQuote": "\"Hart began to sound the death knell, Clinton made the party dying, and Bradley ruined it.\" - New York Times"
+}
+
+//#startcode
+
+
+corrr = '\n              <h2>THE CAMPAIGN TRAIL</h2><font id="wittyquote" size="4" color="white"><em>"Hart began to sound the death knell, Clinton made the party dying, and Bradley ruined it." - New York Times</em></font>\n            ';
+
+
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#08491c";
+
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#2a6822";
+
+document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title;
+
+$("#game_window")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_window;
+
+$(".container")[0].style.backgroundColor = "#26265a";
+
+document.getElementById("header").src = "https://i.imgur.com/bEh64d6.jpg";
+
+document.body.background = "";
+
+document.head.innerHTML += "<style>#results_container {color:#000000;} .inner_window_w_desc {background-color:#2c5ea0!important;}</style>";
+
+//#endcode
